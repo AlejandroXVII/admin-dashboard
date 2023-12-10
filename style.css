@@ -3,6 +3,7 @@
     --background-color: #e2e8f0;
     --profile-background-color: #c4b5fd;
     --icon-size: 25px;
+    --shadow: 0px 15px 30px -35px black;
 }
 
 body{
@@ -20,7 +21,7 @@ body > div {
     grid-template-rows: 1fr 4fr;   
 }
 
-body div {border: 1px solid red;}
+body div {border: 0px solid red;}
 
 .first-layer{
     z-index: 10;
@@ -66,6 +67,10 @@ width: calc(var(--icon-size) + 15px);
 .content-container {
     background-color: var(--background-color);
     grid-area: 2 / 2 / -1 /-1;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;  
+    padding: 10px;
 }
 
 .header {
@@ -152,12 +157,20 @@ width: calc(var(--icon-size) + 15px);
     margin: 0;
 }
 
-.header-container:nth-child(4){
+.header-container:nth-child(4) {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.header-container:nth-child(4)>div{
     display: grid;
     align-items: center;
     justify-items: center;
     grid-auto-flow: column;
     grid-column: auto auto auto;
+    justify-content: space-evenly;
+    gap: 7px;
 }
 
 .dashboard-button{
@@ -167,3 +180,68 @@ width: calc(var(--icon-size) + 15px);
     font-weight: bold;
     background-color: var(--principal-color);
 }
+
+#projects-out {
+    grid-row: 1 / -1;
+}
+#projects-in {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+.content-box{
+    height: 250px;
+    width: 230px;
+    display: grid;
+    grid-template-columns: 10px 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+    >div:not(#content-box-icons, .cover){
+        grid-row: 1 / -1;
+        background-color: #c084fc;
+        z-index: 30;
+    }
+    >#content-box-icons{
+        justify-self: end;
+        margin: 0 10px;
+        z-index: 30;
+    }
+    >h4, p {
+        margin: 10px 0 0 10px;
+        z-index: 30;
+    }
+    .cover{
+        position: absolute;
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 55%);
+        height: 230px;
+        width: 230px;
+        z-index: 20;
+    }
+}
+
+.content-box:nth-child(n){
+    background-size: 230px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 10; 
+}
+.content-box:nth-child(1){
+    background-image: url(./projects-caps/Screenshot\ from\ 2023-12-10\ 10-04-44.png);
+}
+.content-box:nth-child(2){
+    background-image: url(./projects-caps/Screenshot\ from\ 2023-12-10\ 10-54-17.png);
+}
+.content-box:nth-child(3){
+    background-image: url(./projects-caps/Screenshot\ from\ 2023-12-10\ 10-54-29.png);
+}
+
+
+
