@@ -191,9 +191,8 @@ width: calc(var(--icon-size) + 15px);
 #projects-in {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
-    justify-content: space-between;
+    row-gap: 20px;
     justify-items: center;
-    gap: 20px;
 }
 
 .content-box{
@@ -329,6 +328,70 @@ width: calc(var(--icon-size) + 15px);
         }
     }
 }
+
+@media only screen and (max-width: 810px){
+    body > div {
+        grid-template-columns: auto 4fr;
+    }
+    #side-bar-container {
+        grid-template-columns:auto;
+        margin: 5px;
+        img{justify-self: center;}
+        p{
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 640px){
+        .header-container:nth-child(3)>div{
+            display: none;
+        }
+        .header-container:nth-child(4)>div{
+            margin: 10px;
+        }
+        .header {
+            grid-template-rows: auto auto;   
+        }
+        @media only screen and (max-width: 566px){
+            .content-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;  
+            }
+            #projects-out {
+                display: grid;
+                justify-content: center
+            }
+            .header-container:nth-child(4)>div{
+               display: none;
+            }
+            .header-container:nth-child(2) {
+                margin: 0;
+                h3{
+                display: none;
+                }
+            }
+            .header{
+                padding: 10px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 0px;
+            }
+            @media only screen and (max-width: 380px){
+                
+                .header-container:nth-child(1) input{
+                    display: none;
+                }
+                @media only screen and (max-width: 340px){
+                    .side-bar{
+                        display: none;
+                    }
+                    :root{
+                        --box-size-width: 200px;
+                    }
+                }
+            };
+        };
+    };
+};
+
 
 
 
