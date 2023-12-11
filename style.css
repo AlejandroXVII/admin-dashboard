@@ -4,6 +4,10 @@
     --profile-background-color: #c4b5fd;
     --icon-size: 25px;
     --shadow: 0px 15px 30px -35px black;
+    --radius: 15px;
+    --box-size-width: 240px;
+    --tex-description-color: rgb(110, 110, 110);
+    --text-description-size: 14px;
 }
 
 body{
@@ -69,7 +73,7 @@ width: calc(var(--icon-size) + 15px);
     grid-area: 2 / 2 / -1 /-1;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;  
+    grid-template-rows: auto 1fr;  
     padding: 10px;
 }
 
@@ -175,7 +179,7 @@ width: calc(var(--icon-size) + 15px);
 
 .dashboard-button{
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: var(--radius);
     border: 0;
     font-weight: bold;
     background-color: var(--principal-color);
@@ -187,19 +191,19 @@ width: calc(var(--icon-size) + 15px);
 #projects-in {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
-    justify-content: center;
+    justify-content: space-between;
     justify-items: center;
     gap: 20px;
 }
 
 .content-box{
     height: 250px;
-    width: 230px;
+    width: calc(var(--box-size-width) * 0.9);
     display: grid;
     grid-template-columns: 10px 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-rows: 30px 4fr 1fr;
     background-color: white;
-    border-radius: 25px;
+    border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     position: relative;
@@ -217,10 +221,13 @@ width: calc(var(--icon-size) + 15px);
         margin: 10px 0 0 10px;
         z-index: 30;
     }
+    p{
+        font-size: var(--text-description-size);
+        color: var(--tex-description-color);
+    }
     .cover{
         position: absolute;
-        background: rgb(255,255,255);
-        background: linear-gradient(0deg, rgba(255,255,255,0) 30%, rgb(255, 255, 255) 55%);
+
         height: 230px;
         width: 230px;
         z-index: 20;
@@ -248,14 +255,77 @@ width: calc(var(--icon-size) + 15px);
     justify-content: center;
     >div{
         background-color: white;
-        border-radius: 25px;
+        border-radius: var(--radius);
         padding: 15px;
-        width: 200px;
-        margin: 15px 0 15px 15px ;
+        width: var(--box-size-width);
+        margin: 0;
         >div{
             width: 100%;
             height: 2px;
             background-color: var(--background-color);
+        }
+    }
+    h4, p{
+        margin: 10px 0;
+    }
+    p{
+        font-size: var(--text-description-size);
+        color: var(--tex-description-color);
+    }
+}
+
+#trading-in{
+    display: grid;
+    justify-content: center;
+    >div{
+        background-color: white;
+        border-radius: var(--radius);
+        padding: 15px;
+        width: var(--box-size-width);
+        margin: 0;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+    img{
+        height: calc(var(--icon-size)*1.5);
+        width: calc(var(--icon-size)*1.5);
+        background-color: var(--profile-background-color);
+        border-radius: 100px;
+        height: calc(var(--icon-size)*2);
+        width: calc(var(--icon-size)*2);
+        display: grid;
+        align-content: center;
+        justify-content: center;
+    }
+    h4, p{
+        margin: 10px 0;
+    }
+    p{
+        font-size: var(--text-description-size);
+        color: var(--tex-description-color);       
+    }
+    >div>div:nth-child(2n-1){
+        justify-self: center;
+    }
+    >div>div:nth-child(1){
+        :nth-child(1){ 
+            background-color: #22c55e;
+        }
+    }
+    >div>div:nth-child(3){
+        :nth-child(1){ 
+            background-color: #facc15;
+        }
+    }
+    >div>div:nth-child(5){
+        :nth-child(1){ 
+            background-color: #22d3ee;
+        }
+    }
+    >div>div:nth-child(7){
+        :nth-child(1){ 
+            background-color: #f43f5e;
         }
     }
 }
